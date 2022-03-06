@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
+        </ion-buttons>
+    <ion-title>Post Target</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  
+  <ion-input [(ngModel)]="topicText" placeholder="Topic Name"></ion-input>
+  <ion-input [(ngModel)]="dateText" placeholder="Date"></ion-input>
+  <ion-item>
+    <ion-label >Subject</ion-label>
+    <ion-select [(ngModel)]="subjectText" placeholder="Select One">
+      <ion-select-option value="Physics">Physics</ion-select-option>
+      <ion-select-option value="Chemistry">Chemistry</ion-select-option>
+      <ion-select-option value="Biology">Biology</ion-select-option>
+      <ion-select-option value="Math">Math</ion-select-option>
+      <ion-select-option value="Other">other</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label >Standard</ion-label>
+    <ion-select [(ngModel)]="standardText" placeholder="Select One">
+      <ion-select-option value="urgent">11</ion-select-option>
+      <ion-select-option value="exploring">12</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label > Mode</ion-label>
+    <ion-select [(ngModel)]="modeText" placeholder="Select One">
+      <ion-select-option value="online">Online</ion-select-option>
+      <ion-select-option value="Offline">Offline</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-footer >
+    <ion-row no-padding text-center>
+      <ion-col size="5">
+        <ion-button expand="block" fill="outline" color="danger" (click)="deleteIdea()">
+          <ion-icon name="trash" slot="start"></ion-icon>
+          Delete
+        </ion-button>
+      </ion-col>
+      <ion-col size="5">
+        <ion-button expand="block" fill="solid" color="success" (click)="addItem({a:topicText},{b:dateText},{c:subjectText},{d:standardText}
+        ,{e:modeText})">
+          <ion-icon name="save" slot="end"></ion-icon>
+          Post
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-footer>
+</ion-content>

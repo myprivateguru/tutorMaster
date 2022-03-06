@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
+      <ion-title>Target details</ion-title>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleFavorite()">
+        <ion-icon *ngIf="!isFavorite" slot="icon-only" name="star-outline"></ion-icon>
+        <ion-icon *ngIf="isFavorite" slot="icon-only" name="star"></ion-icon>
+      </ion-button>
+      <ion-button (click)="shareSession()">
+        <ion-icon slot="icon-only" name="share"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>{{item.name}}</ion-card-title>
+      <p><ion-icon name="quote"></ion-icon> <ion-text color="primary"><h2>{{item.Topic}}</h2></ion-text></p>
+      <p><ion-icon name="contacts"></ion-icon> {{item.Date}}</p>
+      <p><ion-icon name="pin"></ion-icon> {{item.Mode}} &mdash;<ion-icon name="compass"></ion-icon> {{item.Subject}} </p>
+      <p><ion-icon name="school"></ion-icon> {{item.Standard}} &mdash; </p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+<ion-buttons slot="primary">
+  <ion-button fill="solid" (click)="contactUser()">
+    <ion-icon slot="start" name="contact" ></ion-icon>
+    Contact
+  </ion-button>
+
+  <button ion-button fill="solid" (click)="hide(hideMe)"><ion-icon slot="start" name="contact" ></ion-icon>Contact</button>
+  <div *ngIf="hideMe">
+    {{item.mobilenumber}}
+   </div>
+ 
+
+    <ion-icon slot="end" name="bug" (click)="reportClick()"></ion-icon> 
+    <ion-icon slot="end" name="help-circle" (click)="presentAlertConfirm()"></ion-icon>
+   </ion-buttons>
